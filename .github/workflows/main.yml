@@ -25,4 +25,4 @@ jobs:
           chmod 700 ~/.ssh/id_rsa
           eval $(ssh-agent -s)
           rsync -avzr --delete -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' ./ $USER_NAME@$HOST_NAME:/home/ubuntu/S24388/mysite
-          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER_NAME@$HOST_NAME "pm2 restart my_django_app"
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER_NAME@$HOST_NAME "pm2 restart my_app"
