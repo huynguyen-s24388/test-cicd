@@ -18,11 +18,11 @@ jobs:
       env:
           PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
           USER_NAME: ubuntu
-          HOST_NAME: 13.115.113.64
+          HOST_NAME: 3.112.46.67
       run: |
           mkdir -p ~/.ssh
           echo "$PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 700 ~/.ssh/id_rsa
           eval $(ssh-agent -s)
           rsync -avzr --delete -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' ./ $USER_NAME@$HOST_NAME:/home/ubuntu/S24388/mysite
-          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER_NAME@$HOST_NAME "pm2 restart mysite"
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER_NAME@$HOST_NAME "pm2 restart my_django_app"
