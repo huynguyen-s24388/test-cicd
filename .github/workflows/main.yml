@@ -1,4 +1,4 @@
-name: CI/CI
+name: CI/CD
 
 on:
 # dispatch
@@ -18,7 +18,7 @@ jobs:
       env:
           PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
           USER_NAME: ubuntu
-          HOST_NAME: 43.207.171.38
+          HOST_NAME: 13.115.113.64
       run: |
           mkdir -p ~/.ssh
           echo "$PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
